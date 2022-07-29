@@ -2,5 +2,8 @@
   "item.skyblock.mithril": "Mithril",
   "item.skyblock.titanium": "Titanium",
 
+  "block.skyblock.mithril_ore": "Mithril Ore",
+  "block.skyblock.titanium_ore": "Titanium Ore",
+
   "itemGroup.skyblocktab": "Hypixel Skyblock"
 }
