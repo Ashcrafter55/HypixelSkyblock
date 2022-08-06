@@ -18,7 +18,7 @@ public class RogueSwordItem extends SwordItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 2));
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 1));
         player.getCooldowns().addCooldown(this, 600);
 
         return super.use(level, player, hand);
