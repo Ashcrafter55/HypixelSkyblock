@@ -5,7 +5,6 @@ import net.ashcrafter55.skyblock.mana.PlayerMana;
 import net.ashcrafter55.skyblock.mana.PlayerManaProvider;
 import net.ashcrafter55.skyblock.networking.ModMessages;
 import net.ashcrafter55.skyblock.networking.packet.ManaDataSyncS2CPacket;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -18,7 +17,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
-import org.apache.logging.log4j.core.jmx.Server;
 
 @Mod.EventBusSubscriber(modid = Skyblock.MOD_ID)
 public class ModEvents {
@@ -39,7 +37,6 @@ public class ModEvents {
                     PlayerMana halfMana = new PlayerMana();
                     halfMana.setMana(halfMana.getMaxMana() / 2);
                     newStore.copyFrom(halfMana);
-                    event.getOriginal().sendSystemMessage(Component.literal("Current Mana: " + halfMana.getMana()));
                 });
             });
         }
@@ -56,7 +53,6 @@ public class ModEvents {
             event.player.getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(mana -> {
                 if(mana.getMana() < mana.getMaxMana() && event.player.getRandom().nextFloat() < .05f) {
                     mana.addMana((int) Math.floor(mana.getMaxMana() / 50));
-                    event.player.sendSystemMessage(Component.literal("Current Mana: " + mana.getMana()));
                     ModMessages.sendToPlayer(new ManaDataSyncS2CPacket(mana.getMana()), (ServerPlayer) event.player);
                 }
             });

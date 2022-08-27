@@ -1,8 +1,6 @@
 package net.ashcrafter55.skyblock.item.custom;
 
 import net.ashcrafter55.skyblock.mana.PlayerManaProvider;
-import net.ashcrafter55.skyblock.networking.ModMessages;
-import net.ashcrafter55.skyblock.networking.packet.ManaDataSyncS2CPacket;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -36,7 +34,6 @@ public class RogueSwordItem extends SwordItem {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 1));
                 player.getCooldowns().addCooldown(this, 600);
                 mana.subMana(manaCost);
-                player.sendSystemMessage(Component.literal("Current Mana: " + mana.getMana()));
             }
         });
 
@@ -49,7 +46,7 @@ public class RogueSwordItem extends SwordItem {
         components.add(Component.literal("RIGHT CLICK")
                 .withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.BOLD));
         components.add(Component.literal("Grants +100 speed for 30s")
-                .withStyle(ChatFormatting.GRAY));;
+                .withStyle(ChatFormatting.GRAY));
         components.add(Component.literal("Mana Cost: " + manaCost)
                 .withStyle(ChatFormatting.DARK_GRAY));
 

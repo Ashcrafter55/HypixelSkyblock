@@ -1,12 +1,9 @@
 package net.ashcrafter55.skyblock.item.custom;
 
 import net.ashcrafter55.skyblock.mana.PlayerManaProvider;
-import net.ashcrafter55.skyblock.networking.ModMessages;
-import net.ashcrafter55.skyblock.networking.packet.ManaDataSyncS2CPacket;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -47,7 +44,6 @@ public class AspectOfTheVoidItem extends SwordItem {
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 0));
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 5, 255));
                 mana.subMana(manaCost);
-                player.sendSystemMessage(Component.literal("Current Mana: " + mana.getMana()));
             }
         });
 
