@@ -34,9 +34,8 @@ public class ModEvents {
         if(event.isWasDeath()) {
             event.getOriginal().getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(oldStore -> {
                 event.getOriginal().getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(newStore -> {
-                    PlayerMana halfMana = new PlayerMana();
-                    halfMana.setMana(halfMana.getMaxMana() / 2);
-                    newStore.copyFrom(halfMana);
+                    oldStore.setMana(oldStore.getMaxMana() / 2);
+                    newStore.copyFrom(oldStore);
                 });
             });
         }
@@ -53,7 +52,7 @@ public class ModEvents {
             event.player.getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(mana -> {
                 if(mana.getMana() < mana.getMaxMana() && event.player.getRandom().nextFloat() < .05f) {
                     mana.addMana((int) Math.floor(mana.getMaxMana() / 50));
-                    ModMessages.sendToPlayer(new ManaDataSyncS2CPacket(mana.getMana()), (ServerPlayer) event.player);
+                    ModMessages.sendToPlayer(new ManaDataSyncS2CPacket(mana.getMana(), mana.getMaxMana()), (ServerPlayer) event.player);
                 }
             });
         }
@@ -64,7 +63,7 @@ public class ModEvents {
         if(!event.getLevel().isClientSide()) {
             if(event.getEntity() instanceof ServerPlayer player) {
                 player.getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(mana -> {
-                    ModMessages.sendToPlayer(new ManaDataSyncS2CPacket(mana.getMana()), player);
+                    ModMessages.sendToPlayer(new ManaDataSyncS2CPacket(mana.getMana(), mana.getMaxMana()), player);
                 });
             }
         }

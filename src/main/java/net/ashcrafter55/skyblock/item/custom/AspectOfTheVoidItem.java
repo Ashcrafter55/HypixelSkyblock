@@ -11,10 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
@@ -39,10 +36,9 @@ public class AspectOfTheVoidItem extends SwordItem {
             } else {
                 BlockHitResult ray = GetRayTrace(level, player, ClipContext.Fluid.NONE);
                 BlockPos lookPos = ray.getBlockPos().relative(ray.getDirection());
-                player.setPos(lookPos.getX() + .5, lookPos.getY(), lookPos.getZ() + .5);
+                player.moveTo(lookPos.getX() + .5, lookPos.getY(), lookPos.getZ() + .5);
                 player.fallDistance = 0f;
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 0));
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 5, 255));
                 mana.subMana(manaCost);
             }
         });

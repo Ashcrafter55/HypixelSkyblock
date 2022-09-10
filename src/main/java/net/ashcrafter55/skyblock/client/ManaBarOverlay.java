@@ -31,7 +31,7 @@ public class ManaBarOverlay {
 
         RenderSystem.setShaderTexture(0, MANA_INCREMENT);
         for(int i = 0; i < 80; i++) {
-            if(ClientManaData.getPlayerMana() * 79 / 100 > i) {
+            if(ClientManaData.getPlayerMana() * 79 / ClientManaData.getPlayerMaxMana() > i) {
                 GuiComponent.blit(poseStack, x + 11 + i, y - 39, 0, 0,
                         1, 9, 1, 9);
             }
@@ -42,7 +42,7 @@ public class ManaBarOverlay {
                 81, 9, 81, 9);
 
         GuiComponent.drawString(poseStack, Minecraft.getInstance().font,
-                Component.literal(ClientManaData.getPlayerMana() + "/" + 100).withStyle(ChatFormatting.BLUE),
+                Component.literal(ClientManaData.getPlayerMana() + "/" + ClientManaData.getPlayerMaxMana()).withStyle(ChatFormatting.BLUE),
                 x + 10, y - 48, 0);
     });
 }

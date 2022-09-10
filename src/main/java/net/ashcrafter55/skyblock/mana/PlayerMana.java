@@ -4,19 +4,19 @@ import net.minecraft.nbt.CompoundTag;
 
 public class PlayerMana {
     private int mana;
+    private int max_mana = 100;
     private final int MIN_MANA = 0;
-    private final int MAX_MANA = 100;
 
     public int getMana() {
         return mana;
     }
 
     public int getMaxMana() {
-        return MAX_MANA;
+        return max_mana;
     }
 
     public void addMana(int toAdd) {
-        this.mana = Math.min(mana + toAdd, MAX_MANA);
+        this.mana = Math.min(mana + toAdd, max_mana);
     }
 
     public void subMana(int toSub) {
@@ -25,6 +25,9 @@ public class PlayerMana {
 
     public void setMana(int toSet) {
         this.mana = toSet;
+    }
+    public void setMaxMana(int toSet) {
+        this.max_mana = toSet;
     }
 
     public void copyFrom(PlayerMana source) {
