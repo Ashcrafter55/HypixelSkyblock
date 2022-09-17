@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.ashcrafter55.skyblock.block.ModBlocks;
 import net.ashcrafter55.skyblock.item.ModItems;
 import net.ashcrafter55.skyblock.networking.ModMessages;
+import net.ashcrafter55.skyblock.screen.ModMenuTypes;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +28,7 @@ public class Skyblock {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

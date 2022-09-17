@@ -4,8 +4,11 @@
   "item.skyblock.aspect_of_the_void": "Aspect of the Void",
   "item.skyblock.rogue_sword": "Rogue Sword",
 
+  "block.skyblock.skyblock_crafting_table": "Skyblock Crafting Table",
   "block.skyblock.mithril_ore": "Mithril Ore",
   "block.skyblock.titanium_ore": "Titanium Ore",
+
+  "container.skyblock_crafting_table": "Skyblock Crafting Table",
 
   "itemGroup.skyblocktab": "Hypixel Skyblock"
 }

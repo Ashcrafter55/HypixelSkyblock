@@ -4,6 +4,8 @@ import net.ashcrafter55.skyblock.mana.PlayerManaProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -39,6 +41,8 @@ public class AspectOfTheVoidItem extends SwordItem {
                 player.moveTo(lookPos.getX() + .5, lookPos.getY(), lookPos.getZ() + .5);
                 player.fallDistance = 0f;
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 0));
+                level.playLocalSound(lookPos.getX(), lookPos.getY(), lookPos.getZ(), SoundEvents.ENDERMAN_TELEPORT,
+                        SoundSource.MASTER, 1.0F, 1.0F, false);
                 mana.subMana(manaCost);
             }
         });

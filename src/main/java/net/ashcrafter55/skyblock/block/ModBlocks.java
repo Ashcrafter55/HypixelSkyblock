@@ -1,6 +1,7 @@
 package net.ashcrafter55.skyblock.block;
 
 import net.ashcrafter55.skyblock.Skyblock;
+import net.ashcrafter55.skyblock.block.custom.SkyblockCraftingTableBlock;
 import net.ashcrafter55.skyblock.item.ModCreativeModeTab;
 import net.ashcrafter55.skyblock.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -21,6 +22,10 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Skyblock.MOD_ID);
+
+    public static final RegistryObject<Block> SKYBLOCK_CRAFTING_TABLE = registerBlock("skyblock_crafting_table",
+            () -> new SkyblockCraftingTableBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(2.5f)), ModCreativeModeTab.SKYBLOCK_TAB);
 
     public static final RegistryObject<Block> MITHRIL_ORE = registerBlock("mithril_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)

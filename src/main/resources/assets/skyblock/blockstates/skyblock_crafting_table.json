@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "skyblock:block/skyblock_crafting_table"
+    }
+  }
+}

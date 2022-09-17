@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/oak_planks",
+    "east": "skyblock:block/skyblock_crafting_table_side",
+    "north": "skyblock:block/skyblock_crafting_table_front",
+    "particle": "skyblock:block/skyblock_crafting_table_front",
+    "south": "skyblock:block/skyblock_crafting_table_side",
+    "up": "skyblock:block/skyblock_crafting_table_top",
+    "west": "skyblock:block/skyblock_crafting_table_front"
+  }
+}
